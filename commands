@@ -41,10 +41,10 @@ case "$1" in
         # Temporarily store it to a file
         if [[ ! -d /home/dokku/.mysql ]]; then
             mkdir -p /home/dokku/.mysql
-            chown -R git: /home/dokku/.mysql
+            chown -R dokku: /home/dokku/.mysql
         fi
         echo $DB_PASS > "/home/dokku/.mysql/pwd_$APP"
-        chown git: "/home/dokku/.mysql/pwd_$APP"
+        chown dokku: "/home/dokku/.mysql/pwd_$APP"
     fi
     # Fork DB image
     ID=$(docker run -d hughfletcher/mysql exit 0)    
